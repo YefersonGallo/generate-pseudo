@@ -30,9 +30,9 @@ function Distributions() {
         const requestOptions1 = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ numIntervalos: Number.parseInt(numIntervalos), ri: res})
+            body: JSON.stringify({ numIntervalos: numIntervalos, ri: res})
         };
-        const responseP1 = await fetch('https://dcb-node-tallers1.herokuapp.com/GnormalStd', requestOptions1)
+        const responseP1 = await fetch('https://dcb-node-deploy-poker.herokuapp.com/GnormalStd', requestOptions1)
         const res1 = await responseP1.json();
         console.log(res1)
         setNumIntervalos('')
@@ -84,7 +84,7 @@ function Distributions() {
                 <div className={"tile is-child mb-2 box is-8 "+(option?"":"is-hidden")}>
                     <div className="field">
                         <label className="label">Distribución Normal</label>
-                        <div className="control tiles is-horizontal">
+                        <div className="field is-horizontal">
                             <input
                                 className="input"
                                 type="text"
