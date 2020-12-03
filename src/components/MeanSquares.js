@@ -3,12 +3,11 @@ import React, { useState, useEffect } from 'react';
 function MeanSquares() {
     const [seed, setSeed] = useState();
     const [size, setSize] = useState();
-    const [response, setResponse] = useState([]);
-    const [xi, setXi] = useState('');
-    const [xi2, setXi2] = useState('');
-    const [extention, setExtention] = useState('');
-    const [extraction, setExtraction] = useState('');
-    const [ri, setRi] = useState('');
+    const [xi, setXi] = useState([]);
+    const [xi2, setXi2] = useState([]);
+    const [extention, setExtention] = useState([]);
+    const [extraction, setExtraction] = useState([]);
+    const [ri, setRi] = useState([]);
     const [visible, setVisible] = useState(true);
 
     useEffect(() =>{
@@ -25,8 +24,11 @@ function MeanSquares() {
         };
         const responseP = await fetch('https://dcb-node-deploy-poker.herokuapp.com/cuadradosmedios', requestOptions)
         const res = await responseP.json();
-        console.log(res.datas)
-        setResponse(res.datas)
+        setXi(res.xi)
+        setXi2(res.xi2)
+        setExtraction(res.extraccion)
+        setExtention(res.extension)
+        setRi(res.ri)
         setVisible(false)
         setSeed('')
         setSize('')
@@ -69,13 +71,13 @@ function MeanSquares() {
                             <th><a download='extracción.txt' href={URL.createObjectURL(new Blob([extraction.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Extracción</a></th>
                             <th><a download='ri.txt' href={URL.createObjectURL(new Blob([ri.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ri</a></th>
                         </tr>
-                        {response.map((row) =>
+                        {xi.map((row, i) =>
                             <tr>
-                                <td>{row.xi}</td>
-                                <td>{row.xi2}</td>
-                                <td>{row.Extensión}</td>
-                                <td>{row.Extracción}</td>
-                                <td>{row.Ri}</td>
+                                <td>{row}</td>
+                                <td>{xi2[i]}</td>
+                                <td>{extention[i]}</td>
+                                <td>{extraction[i]}</td>
+                                <td>{ri[i]}</td>
                             </tr>
                         )}
                     </thead>

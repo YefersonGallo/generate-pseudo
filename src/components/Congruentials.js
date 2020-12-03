@@ -139,7 +139,7 @@ function Congruentials() {
                         <div className="field is-horizontal">
                             <button
                                 className={range?"button is-info mr-2":"button is-success mr-2"}
-                                data-tooltip="Ingrese el número menor del rango"
+                                data-tooltip="Números normalizados"
                                 onClick={() => {setRange(!range)}}>
                                 ¿Números entre un rango?
                             </button>
@@ -158,7 +158,6 @@ function Congruentials() {
                         </div>
                         <button
                             className="button is-primary mt-3"
-                            data-tooltip="Números normalizados"
                             onClick={() => {generate(!range?'linear_range':'linear')}}>
                             Generar
                         </button>

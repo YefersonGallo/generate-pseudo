@@ -11,6 +11,9 @@ function Distributions() {
     const [intervals, setIntervals] = useState();
     const [min, setMin] = useState();
     const [max, setMax] = useState();
+    const [frequence, setFrequence] = useState([]);
+    const [intervalesArr, setIntervalesArr] = useState([]);
+    const [ni, setNi] = useState([]);
 
     useEffect(() =>{
         fetch('https://dcb-node-deploy-poker.herokuapp.com/ping')
@@ -26,6 +29,7 @@ function Distributions() {
         };
         const responseP = await fetch('https://dcb-node-deploy-poker.herokuapp.com/generaterandom', requestOptions)
         const res = await responseP.json();
+        console.log(res)
         setXi(res)
         const requestOptions1 = {
             method: 'POST',
@@ -35,8 +39,12 @@ function Distributions() {
         const responseP1 = await fetch('https://dcb-node-deploy-poker.herokuapp.com/GnormalStd', requestOptions1)
         const res1 = await responseP1.json();
         console.log(res1)
+        setFrequence(res1.frecuencias)
+        setIntervalesArr(res1.intervalos)
+        setNi(res1.ni)
         setNumIntervalos('')
         setSize('')
+        setTable_normal(false)
     }
 
     let send_request_uniform = async () =>{
@@ -147,6 +155,45 @@ function Distributions() {
                             <tr>
                                 <td>{row}</td>
                                 <td>{ri[i]}</td>
+                            </tr>
+                        )}
+                        </thead>
+                    </table>
+                </div>
+                <div className={"tile is-child box "+(table_normal?"is-hidden":"")}>
+                    <h1>Números Generados</h1>
+                    <table className="table">
+                        <thead>
+                        <tr>
+                            <th>Frecuencias</th>
+                        </tr>
+                        {frequence.map((row) =>
+                            <tr>
+                                <td>{row}</td>
+                            </tr>
+                        )}
+                        </thead>
+                    </table>
+                    <table className="table">
+                        <thead>
+                        <tr>
+                            <th>Intervalos</th>
+                        </tr>
+                        {intervalesArr.map((row) =>
+                            <tr>
+                                <td>{row}</td>
+                            </tr>
+                        )}
+                        </thead>
+                    </table>
+                    <table className="table">
+                        <thead>
+                        <tr>
+                            <th><a download='ni.txt' href={URL.createObjectURL(new Blob([ni.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ni</a></th>
+                        </tr>
+                        {ni.map((row) =>
+                            <tr>
+                                <td>{row}</td>
                             </tr>
                         )}
                         </thead>
