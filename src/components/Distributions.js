@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Distributions() {
-    const [numIntervalos, setNumIntervalos] = useState(0);
+    const [numIntervalos] = useState(0);
     const [xi, setXi] = useState([]);
     const [ri, setRi] = useState([]);
     const [option, setOption] = useState(true);
@@ -42,7 +42,7 @@ function Distributions() {
         setFrequence(res1.frecuencias)
         setIntervalesArr(res1.intervalos)
         setNi(res1.ni)
-        setNumIntervalos('')
+        setIntervals('')
         setSize('')
         setTable_normal(false)
     }
@@ -164,42 +164,50 @@ function Distributions() {
                 </div>
                 <div className={"tile is-child box "+(table_normal?"is-hidden":"")}>
                     <h1>Números Generados</h1>
-                    <table className="table">
-                        <thead>
-                        <tr>
-                            <th>Frecuencias</th>
-                        </tr>
-                        {frequence.map((row) =>
+                    <div className="columns">
+                        <div className="column">
+                            <table className="table">
+                            <thead>
                             <tr>
-                                <td>{row}</td>
+                                <th>Frecuencias</th>
                             </tr>
-                        )}
-                        </thead>
-                    </table>
-                    <table className="table">
-                        <thead>
-                        <tr>
-                            <th>Intervalos</th>
-                        </tr>
-                        {intervalesArr.map((row) =>
+                            {frequence.map((row) =>
+                                <tr>
+                                    <td>{row}</td>
+                                </tr>
+                            )}
+                            </thead>
+                        </table>
+                        </div>
+                        <div className="column">
+                            <table className="table">
+                            <thead>
                             <tr>
-                                <td>{row}</td>
+                                <th>Intervalos</th>
                             </tr>
-                        )}
-                        </thead>
-                    </table>
-                    <table className="table">
-                        <thead>
-                        <tr>
-                            <th><a download='ni.txt' href={URL.createObjectURL(new Blob([ni.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ni</a></th>
-                        </tr>
-                        {ni.map((row) =>
+                            {intervalesArr.map((row) =>
+                                <tr>
+                                    <td>{row}</td>
+                                </tr>
+                            )}
+                            </thead>
+                        </table>
+                        </div>
+                        <div className="column">
+                            <table className="table">
+                            <thead>
                             <tr>
-                                <td>{row}</td>
+                                <th><a download='ni.txt' href={URL.createObjectURL(new Blob([ni.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ni</a></th>
                             </tr>
-                        )}
-                        </thead>
-                    </table>
+                            {ni.map((row) =>
+                                <tr>
+                                    <td>{row}</td>
+                                </tr>
+                            )}
+                            </thead>
+                        </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

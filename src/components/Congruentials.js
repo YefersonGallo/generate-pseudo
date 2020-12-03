@@ -91,11 +91,11 @@ function Congruentials() {
                         Métodos Congruenciales
                     </p>
                     <ul className="menu-list">
-                        <li><a href='#normal' onClick={() => {
+                        <li><a href='#lineal' onClick={() => {
                             setOption(true);
                             setVisibleTable(true)
                         }}>Congruencial Lineal</a></li>
-                        <li><a href='#uniform' onClick={() => {
+                        <li><a href='#multiple' onClick={() => {
                             setOption(false);
                             setVisibleTable(true)
                         }}>Congruencial Multiplicativo</a></li>
@@ -158,7 +158,7 @@ function Congruentials() {
                         </div>
                         <button
                             className="button is-primary mt-3"
-                            onClick={() => {generate(!range?'linear_range':'linear')}}>
+                            onClick={() => {generate(range?'linear':'linear_range')}}>
                             Generar
                         </button>
                     </div>
@@ -207,7 +207,7 @@ function Congruentials() {
                     </div>
                     <button
                         className="button is-primary mt-3"
-                        onClick={() => {generate(!range?'multi_range':'multi')}}>
+                        onClick={() => {generate(range?'multi':'multi_range')}}>
                         Generar
                     </button>
                 </div>
@@ -219,16 +219,16 @@ function Congruentials() {
                             <th><a download='xi.txt' href={URL.createObjectURL(new Blob([xi.toString().replaceAll(',', '\n')], {type: 'text/plain'}))} >Xi</a></th>
                             <th><a download='ri_abierto.txt' href={URL.createObjectURL(new Blob([ri_open.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ri Intervalo Abierto</a></th>
                             <th><a download='ri_cerrado.txt' href={URL.createObjectURL(new Blob([ri_close.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ri Intervalo Cerrado</a></th>
-                            <th className={ni_open.length === 0?"is-hidden":""}><a download='ni_abierto.txt' href={URL.createObjectURL(new Blob([ni_open.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ni Intervalo Abierto</a></th>
-                            <th className={ni_close.length === 0?"is-hidden":""}><a download='ni_cerrado.txt' href={URL.createObjectURL(new Blob([ni_close.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ni Intervalo Cerrado</a></th>
+                            <th className={range?"is-hidden":""}><a download='ni_abierto.txt' href={URL.createObjectURL(new Blob([ni_open.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ni Intervalo Abierto</a></th>
+                            <th className={range?"is-hidden":""}><a download='ni_cerrado.txt' href={URL.createObjectURL(new Blob([ni_close.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ni Intervalo Cerrado</a></th>
                         </tr>
                         {xi.map((num, i) =>
                             <tr>
                                 <td>{num}</td>
                                 <td>{ri_open[i]}</td>
                                 <td>{ri_close[i]}</td>
-                                <td className={ni_open.length === 0?"is-hidden":""}>{ni_open[i]}</td>
-                                <td className={ni_open.length === 0?"is-hidden":""}>{ni_close[i]}</td>
+                                <td className={range?"is-hidden":""}>{ni_open[i]}</td>
+                                <td className={range?"is-hidden":""}>{ni_close[i]}</td>
                             </tr>
                         )}
                         </thead>
