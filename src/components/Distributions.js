@@ -147,8 +147,8 @@ function Distributions() {
                     <table className="table">
                         <thead>
                         <tr>
-                            <th><a download='ri.txt' href={URL.createObjectURL(new Blob([xi.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Xi</a></th>
-                            <th><a download='ni.txt' href={URL.createObjectURL(new Blob([ri.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ri</a></th>
+                            <th><a download='ri.txt' href={URL.createObjectURL(new Blob([xi.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ri</a></th>
+                            <th><a download='ni.txt' href={URL.createObjectURL(new Blob([ri.toString().replaceAll(',', '\n')], {type: 'text/plain'}))}>Ni</a></th>
                         </tr>
                         {xi.map((row, i) =>
                             <tr>
