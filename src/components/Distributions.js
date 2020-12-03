@@ -61,10 +61,10 @@ function Distributions() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ri: res, min: min, max: max})
         };
-        const responseP1 = await fetch('https://dcb-node-deploy-poker.herokuapp.com/normalize', requestOptions1)
+        const responseP1 = await fetch('https://dcb-node-deploy-poker.herokuapp.com/uniform', requestOptions1)
         const res1 = await responseP1.json();
         setRi(res1)
-        setNumIntervalos('')
+        setIntervals('')
         setSize('')
         setMin('')
         setMax('')
@@ -80,10 +80,12 @@ function Distributions() {
                         </p>
                         <ul className="menu-list">
                             <li><a href='#normal' onClick={() => {
-                                setOption(true)
+                                setOption(true);
+                                setTable_uniform(true)
                             }}>Distribución Normal</a></li>
                             <li><a href='#uniform' onClick={() => {
-                                setOption(false)
+                                setOption(false);
+                                setTable_normal(true)
                             }}>Distribución Uniforme</a></li>
                         </ul>
                     </aside>

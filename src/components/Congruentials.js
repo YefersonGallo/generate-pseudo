@@ -207,7 +207,7 @@ function Congruentials() {
                     </div>
                     <button
                         className="button is-primary mt-3"
-                        onClick={() => {setX0(x0)}}>
+                        onClick={() => {generate(!range?'multi_range':'multi')}}>
                         Generar
                     </button>
                 </div>
