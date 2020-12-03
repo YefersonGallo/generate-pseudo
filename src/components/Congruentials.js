@@ -18,7 +18,7 @@ function Congruentials() {
     const [ni_close, setNi_close] = useState([]);
 
     useEffect(() =>{
-        fetch('http://congruentialmethods.herokuapp.com/ping')
+        fetch('https://congruentialmethods.herokuapp.com/ping')
             .then(res => res.json())
             .then(data => console.log(data))
     });
@@ -30,7 +30,7 @@ function Congruentials() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ x0: x0, k: k, c: c, g: g})
             };
-            const response = await fetch('http://congruentialmethods.herokuapp.com/linear_congruence', requestOptions)
+            const response = await fetch('https://congruentialmethods.herokuapp.com/linear_congruence', requestOptions)
             const res = await response.json();
             setXi(res.xi)
             setRi_open(res.Ri_open)
@@ -41,7 +41,7 @@ function Congruentials() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ x0: x0, k: k, c: c, g: g, min: min, max: max})
             };
-            const response = await fetch('http://congruentialmethods.herokuapp.com/linear_congruence_range', requestOptions)
+            const response = await fetch('https://congruentialmethods.herokuapp.com/linear_congruence_range', requestOptions)
             const res = await response.json();
             setXi(res.xi)
             setRi_open(res.Ri_open)
@@ -54,7 +54,7 @@ function Congruentials() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ x0: x0, t: t, g: g})
             };
-            const response = await fetch('http://congruentialmethods.herokuapp.com/multi_congruence', requestOptions)
+            const response = await fetch('https://congruentialmethods.herokuapp.com/multi_congruence', requestOptions)
             const res = await response.json();
             setXi(res.xi)
             setRi_open(res.Ri_open)
@@ -65,7 +65,7 @@ function Congruentials() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ x0: x0, t: t, g: g, min: min, max: max})
             };
-            const response = await fetch('http://congruentialmethods.herokuapp.com/multi_congruence_range', requestOptions)
+            const response = await fetch('https://congruentialmethods.herokuapp.com/multi_congruence_range', requestOptions)
             const res = await response.json();
             setXi(res.xi)
             setRi_open(res.Ri_open)
