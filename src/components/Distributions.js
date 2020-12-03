@@ -18,7 +18,6 @@ function Distributions() {
     useEffect(() =>{
         fetch('https://dcb-node-deploy-poker.herokuapp.com/ping')
             .then(res => res.json())
-            .then(data => console.log(data))
     });
 
     let send_request_normal = async () =>{
@@ -29,7 +28,6 @@ function Distributions() {
         };
         const responseP = await fetch('https://dcb-node-deploy-poker.herokuapp.com/generaterandom', requestOptions)
         const res = await responseP.json();
-        console.log(res)
         setXi(res)
         const requestOptions1 = {
             method: 'POST',
@@ -38,7 +36,6 @@ function Distributions() {
         };
         const responseP1 = await fetch('https://dcb-node-deploy-poker.herokuapp.com/GnormalStd', requestOptions1)
         const res1 = await responseP1.json();
-        console.log(res1)
         setFrequence(res1.frecuencias)
         setIntervalesArr(res1.intervalos)
         setNi(res1.ni)

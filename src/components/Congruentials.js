@@ -20,7 +20,6 @@ function Congruentials() {
     useEffect(() =>{
         fetch('https://congruentialmethods.herokuapp.com/ping')
             .then(res => res.json())
-            .then(data => console.log(data))
     });
 
     let generate = async (value) =>{

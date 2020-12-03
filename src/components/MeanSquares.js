@@ -13,7 +13,6 @@ function MeanSquares() {
     useEffect(() =>{
         fetch('https://dcb-node-deploy-poker.herokuapp.com/ping')
             .then(res => res.json())
-            .then(data => console.log(data))
     });
 
     let send_request = async () =>{
