@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Distributions() {
-    const [numIntervalos, setNumIntervalos] = useState(0);
+    const [numIntervalos, setNumIntervalos] = useState('');
     const [xi, setXi] = useState([]);
     const [ri, setRi] = useState([]);
     const [option, setOption] = useState(true);
