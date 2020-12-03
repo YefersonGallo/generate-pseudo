@@ -36,6 +36,7 @@ function Distributions() {
         };
         const responseP1 = await fetch('https://dcb-node-deploy-poker.herokuapp.com/GnormalStd', requestOptions1)
         const res1 = await responseP1.json();
+        console.log(res1)
         setFrequence(res1.frecuencias)
         setIntervalesArr(res1.intervalos)
         setNi(res1.ni)
