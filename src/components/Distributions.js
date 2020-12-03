@@ -84,9 +84,9 @@ function Distributions() {
                 <div className={"tile is-child mb-2 box is-8 "+(option?"":"is-hidden")}>
                     <div className="field">
                         <label className="label">Distribución Normal</label>
-                        <div className="field is-horizontal">
+                        <div className="control is-horizontal">
                             <input
-                                className="input"
+                                className="input mb-2"
                                 type="text"
                                 placeholder="Ingrese la cantidad de números"
                                 value={size}
@@ -108,15 +108,15 @@ function Distributions() {
                 <div className={"tile is-child mb-2 box is-8 "+(option?"is-hidden":"")}>
                     <div className="field">
                         <label className="label">Distribución Uniforme</label>
-                        <div className="field is-horizontal">
+                        <div className="field ">
                             <input
-                                className="input"
+                                className="input mb-2"
                                 type="text"
                                 placeholder="Ingrese la cantidad de números"
                                 value={size}
                                 onChange={(e) => {setSize( e.target.value.toString().replace(/[^0-9]+/, ''))}}/>
                             <input
-                                className="input"
+                                className="input mb-2"
                                 type="text"
                                 placeholder="Ingrese el número menor del rango"
                                 value={min}
