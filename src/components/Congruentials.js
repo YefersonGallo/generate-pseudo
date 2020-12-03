@@ -23,6 +23,11 @@ function Congruentials() {
     });
 
     let generate = async (value) =>{
+        setXi([])
+        setRi_open([])
+        setRi_close([])
+        setNi_open([])
+        setNi_close([])
         if (value === 'linear'){
             const requestOptions = {
                 method: 'POST',
