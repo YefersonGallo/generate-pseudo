@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 function Distributions() {
-    const [numIntervalos] = useState(0);
+    const [numIntervalos, setNumIntervalos] = useState(0);
     const [xi, setXi] = useState([]);
     const [ri, setRi] = useState([]);
     const [option, setOption] = useState(true);
     const [table_uniform, setTable_uniform] = useState(true);
     const [table_normal, setTable_normal] = useState(true);
     const [size, setSize] = useState();
-    const [intervals, setIntervals] = useState();
     const [min, setMin] = useState();
     const [max, setMax] = useState();
     const [frequence, setFrequence] = useState([]);
@@ -40,7 +39,7 @@ function Distributions() {
         setFrequence(res1.frecuencias)
         setIntervalesArr(res1.intervalos)
         setNi(res1.ni)
-        setIntervals('')
+        setNumIntervalos('')
         setSize('')
         setTable_normal(false)
     }
@@ -62,7 +61,6 @@ function Distributions() {
         const responseP1 = await fetch('https://dcb-node-deploy-poker.herokuapp.com/uniform', requestOptions1)
         const res1 = await responseP1.json();
         setRi(res1)
-        setIntervals('')
         setSize('')
         setMin('')
         setMax('')
@@ -103,8 +101,8 @@ function Distributions() {
                                 className="input"
                                 type="text"
                                 placeholder="Ingrese la cantidad de intervalos"
-                                value={intervals}
-                                onChange={(e) => {setIntervals( e.target.value.toString().replace(/[^0-9]+/, ''))}}/>
+                                value={numIntervalos}
+                                onChange={(e) => {setNumIntervalos( e.target.value.toString().replace(/[^0-9]+/, ''))}}/>
                         </div>
                         <button
                             className="button is-primary mt-3"
